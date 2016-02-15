@@ -61,13 +61,14 @@ Run the couchbase server with the shell script provided, running couchbase into 
 ```
 Note: [Useful link for couchbase containerization](http://developer.couchbase.com/documentation/server/4.0/install/docker-singlehost-miltiplecont.html)
 
-The cluster will have to be set up via the Admin UI at [http://localhost:8091](http://localhost:8091).
-To find the IP address of the nodes to be added to the cluster, run `docker ps` and then add node 2 and node 3. The nod e1 is the node which exposes the port 8091. To get the IP:
+To find the IP address of the nodes to be added to the cluster, run `docker ps` and then add node 2 and node 3. The node 1 is the node which exposes the port 8091. To get the IP:
 ```sh
 docker inspect --format '{{ .NetworkSettings.IPAddress }}' <ID of node>
 ```
-The IP address will be passed to the couchbase cluster wizard.
-Once the servers are added as nodes of the couchbase cluster, request a full rebalance of the cluster. 3 actives servers must then be available.
+The IP address will be passed to the couchbase cluster by the scriptOnce the servers are added as nodes of the couchbase cluster, a request for a full rebalance of the cluster is issued.
+
+The cluster is accessible via the Admin UI at [http://localhost:8091](http://localhost:8091).
+
 
 ## Containerization of node.js application
 The base image is based on the node image: [https://hub.docker.com/_/node/](https://hub.docker.com/_/node/)
