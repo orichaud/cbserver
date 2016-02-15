@@ -1,12 +1,18 @@
 {
-    "name": "server",
+    "name": "cbserver",
     "private": true,
     "version": "0.0.1",
-    "description": "Simple node server",
+    "description": "Simple Couchbase node server",
     "author": "Olivier Richaud <olivier.richaud@amadeus.com>",
+
     "dependencies": {
-        "commander": "2.9.0",
         "express": "4.13.3",
         "couchbase": "2.1.3"
+    },
+
+    "config" : {
+        "port" : "8080",
+        "couchbase": "172.17.0.3",
+        "bucket": "sample-beer"
     }
 }

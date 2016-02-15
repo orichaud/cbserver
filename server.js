@@ -1,39 +1,13 @@
 var express = require('express');
-var program = require('commander');
 var couchbase = require("couchbase");
 
-var port = 8080;
-var couchbaseHost = '127.0.0.1';
-var bucketName = 'beer-sample';
+var port = process.env.npm_package_config_port || 8080;
+var couchbaseHost = process.env.npm_package_config_couchbase || '127.0.0.1';
+var bucketName = process.env.npm_package_config_bucket || 'beer-sample';
 
-program
-    .version('0.0.1')
-    .option('-p, --port <Port>', 'set port to listen to')
-    .option('-c, --couchbase <host>', 'set ip to connect to')
-    .option('-b, --bucket <bucket name>', 'set bucket to connect to')
-    .parse(process.argv);
-
-
-if (program.port) {
-    port = program.port;
-    console.log('Port given: ' + port);
-} else {
-    console.error('No port has been defined. Default port used: ' + port);
-}
-
-if (program.couchbase) {
-    couchbaseHost = program.couchbase;
-    console.log('Couchbase host: ' + couchbaseHost);
-} else {
-    console.error('No couchbase host has been defined. Default host used: ' + couchbaseHost);
-}
-
-if (program.bucket) {
-    bucketName = program.bucket;
-    console.log('Bucket name: ' + bucketName);
-} else {
-    console.error('No bucket name has been defined. Default host used: ' + bucketName);
-}
+console.log('Config - Port: ' + port);
+console.log('Config - Couchbase host: ' + couchbaseHost);
+console.log('Config - Bucket name: ' + bucketName);
 
 var cluster = new couchbase.Cluster(couchbaseHost);
 var bucket = cluster.openBucket(bucketName, function(err) {
@@ -45,6 +19,11 @@ var bucket = cluster.openBucket(bucketName, function(err) {
 
 var app = express();
 app.disable('x-powered-by');
+
+app.get('/status', function(req, res) {
+  console.log("Status called");
+  res.json({"status": "running"});
+});
 
 app.get('/get/:id', function(req, res) {
     console.log("Document requested - id=" + req.params.id);
