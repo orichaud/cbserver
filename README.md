@@ -80,13 +80,16 @@ The docker file is `Dockerfile` in the root dir. To build the image"
 ```
 The build assumes there exists a `package.json` file which lists all the dependencies.
 
-
+## CB Server
+The `cbserver` is built with the `build-docker-img.sh` sheel script.
+By defaut, the server run on port `8080`and can be accessed at [http://localhost:8080](http://localhost:8080]).
+The server tries connecting to the a Couchbase cluster at `127.0.0.1`. Option `--couchbase` allows changing the IP address.
 
 ## Port NATing
 
 On MacOS, ports need to be open:
 ```sh
-./open-ports.#!/bin/sh
+./open-ports.
 ```
 
 # Others
