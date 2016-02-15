@@ -87,7 +87,10 @@ The server can be launched as follows:
 ```sh
 npm start
 ```
-The whole configuration is defined in `package.json`.
+The whole configuration is defined in `package.json`. To override the configuration, for example:
+```sh
+npm start --cbserver:couchbase="127.0.0.1:8092"
+```
 
 ## Port NATing
 
