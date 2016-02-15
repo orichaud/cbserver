@@ -89,7 +89,7 @@ The server tries connecting to the a Couchbase cluster at `127.0.0.1`. Option `-
 
 On MacOS, ports need to be open:
 ```sh
-./open-ports.
+./open-ports.sh
 ```
 
 # Others
