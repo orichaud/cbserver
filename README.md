@@ -81,12 +81,12 @@ The build assumes there exists a `package.json` file which lists all the depende
 ## CB Server
 The `cbserver` is built with the `build-docker-img.sh` sheel script.
 By defaut, the server run on port `8080`and can be accessed at [http://localhost:8080](http://localhost:8080]).
-The server tries connecting to the a Couchbase cluster at `127.0.0.1`. Option `--couchbase` allows changing the IP address.
 
 The server can be launched as follows:
 ```sh
 npm start
 ```
+
 The whole configuration is defined in `package.json`. To override the configuration, for example:
 ```sh
 npm start --cbserver:couchbase="127.0.0.1:8092"
