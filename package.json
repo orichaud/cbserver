@@ -13,6 +13,6 @@
     "config" : {
         "port" : "8080",
         "couchbase": "172.17.0.3",
-        "bucket": "sample-beer"
+        "bucket": "buckor"
     }
 }

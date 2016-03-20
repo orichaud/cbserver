@@ -18,7 +18,11 @@ rm -rf data
 echo "Data directory cleaned up"
 
 mkdir -p data/node0
-$DOCKER run -d -v $(pwd)/data/node1:/opt/couchbase/var -p 11210:11210 -p 11211:11211 -p 8091:8091 -p 8092:8092 --name=$node_prefix-0 couchbase/server
+
+$DOCKER run -d -v $(pwd)/data/node1:/opt/couchbase/var \
+-p 11207:11207 -p 11210:11210 -p 11211:11211 -p 8091-8093:8091-8093 \
+--name=$node_prefix-0 couchbase/server
+
 ip_master=$($DOCKER inspect -f '{{ .NetworkSettings.IPAddress }}' $node_prefix-0)
 echo "Master created: $ip_master"
 
