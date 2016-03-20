@@ -43,8 +43,6 @@ app.get('/get/:id', function(req, res) {
     }
 
     var doc = result.value;
-    console.log(doc.name + ', ABV: ' + doc.abv);
-
     res.json({
       'get': req.params.id,
       'doc': doc
