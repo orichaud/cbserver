@@ -100,12 +100,49 @@ On MacOS, ports need to be open:
 ./open-ports.sh
 ```
 
+
+
+The result can be viewed as as single html report (open `report.html`).
+
+# Build, run, test
+
+## Using the make command
+
+You can use the `makefile`:
+* Start all and build all:
+```sh
+make all
+```
+* Run the test suite:
+```sh
+make test
+```
+
+## Testing with Robot framework
+Install the `Robot Framework` and the dependecies with `pip` (assuming you have Python 2.7 and above installed):
+```sh
+pip install robotframework
+pip install robotframework-httplibrary
+```
+
+You can then run the test either directly with the `robot` command line interface.
+
+```sh
+robot api.robot
+```
+
+or with `make`:
+
+```sh
+make test
+```
 # Others
 
 ## Editor
 
 ### Atom
-Install `language-docker`
+Install `language-docker` and  `language-robot-framework`
 ```sh
 apm install language-docker
+apm install language-robot-framework
 ```
