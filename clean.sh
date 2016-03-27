@@ -1,7 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 source ./docker-env.sh
 
-$DOCKER rm --force $(docker ps -a -q)
+containers=$(docker ps -a -q)
+if [[ ! -z "$containers" ]]; then
+    $DOCKER rm --force $containers
+fi
+$DOCKER rmi --force $IMGNAME
 
 exit 0

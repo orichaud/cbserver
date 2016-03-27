@@ -5,4 +5,8 @@ MACHINE_NAME=dev
 
 VBOX_MANAGE=/usr/local/bin/VBoxManage
 
-NETWORK=cb-net
+IMGNAME=orichaud/cbserver
+IMGVERSION=1.0
+CONTAINER_NAME=cbserver
+
+eval "$(docker-machine env $MACHINE_NAME)"
