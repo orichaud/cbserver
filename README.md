@@ -100,8 +100,6 @@ On MacOS, ports need to be open:
 ./open-ports.sh
 ```
 
-
-
 The result can be viewed as as single html report (open `report.html`).
 
 # Build, run, test
