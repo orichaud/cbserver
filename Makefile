@@ -8,7 +8,7 @@ setup:
 	- ./setup.sh
 
 test:
-	- ./test.sh
+	- robot api.robot
 
 build:
 	- ./build-docker-img.sh
