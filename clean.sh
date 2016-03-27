@@ -7,5 +7,6 @@ if [[ ! -z "$containers" ]]; then
     $DOCKER rm --force $containers
 fi
 $DOCKER rmi --force $IMGNAME:$IMGVERSION
+$DOCKER rmi --force $IMGNAME:latest
 
 exit 0

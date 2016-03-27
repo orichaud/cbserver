@@ -73,7 +73,6 @@ echo "Couchbase cluster ready. Nodes available:"
 $COUCHBASE_CLI server-list -c $ip_master:8091 -u $user -p $password
 $COUCHBASE_CLI bucket-list -c $ip_master:8091 -u $user -p $password
 
-
 echo "Cluster initialized"
 
 exit 0
