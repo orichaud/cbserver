@@ -1,10 +1,11 @@
-all: clean build run test
+all: clean setup build run
 
 run:
-	- ./clean.sh
-	- ./setup.sh
 	- ./run-couchbase.sh
 	- ./run-docker-img.sh
+
+setup:
+	- ./setup.sh
 
 test:
 	- ./test.sh
