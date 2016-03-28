@@ -12,6 +12,11 @@ Couchbase SDK:
 npm -g install couchbase
 ```
 
+For syntax validation:
+```sh
+npm install -g esprima
+```
+
 Environment for node (optional):
 ```sh
 export NODE_PATH=/usr/local/lib:/usr/local/lib/node_modules

@@ -1,17 +1,20 @@
+SRC=server.js
+
 all: clean setup build run
 
 run:
-	- ./run-couchbase.sh
-	- ./run-docker-img.sh
+	./run-couchbase.sh
+	./run-docker-img.sh
 
 setup:
-	- ./setup.sh
+	./setup.sh
 
 test:
-	- robot api.robot
+	robot api.robot
 
-build:
-	- ./build-docker-img.sh
+build: $(SRC)
+	esvalidate $<
+	./build-docker-img.sh
 
 clean:
-	- ./clean.sh
+	./clean.sh
