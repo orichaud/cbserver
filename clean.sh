@@ -9,4 +9,6 @@ fi
 $DOCKER rmi --force $IMGNAME:$IMGVERSION
 $DOCKER rmi --force $IMGNAME:latest
 
+rm -rf data
+
 exit 0
